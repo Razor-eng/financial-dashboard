@@ -12,7 +12,7 @@ export function CreditCards() {
               <div className="text-xl font-semibold">$5,756</div>
             </div>
             <div className="flex items-center gap-2">
-              <img src="/chip.png" alt="" />
+              <img src="/chip.png" alt="chip-1" />
             </div>
           </div>
           <div className="mb-4 px-6">
@@ -44,7 +44,7 @@ export function CreditCards() {
               <div className="text-xl font-semibold">$5,756</div>
             </div>
             <div className="flex items-center gap-2">
-              <img src="chip1.png" alt="" />
+              <img src="chip1.png" alt="chip-2" />
             </div>
           </div>
           <div className="mb-4 px-6">
