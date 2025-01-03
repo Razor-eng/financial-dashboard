@@ -7,9 +7,10 @@ import * as z from 'zod'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { PenSquare, Search } from 'lucide-react'
+import { PenSquare } from 'lucide-react'
 import { useAppContext } from '@/context/AppContext'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { toast } from 'sonner'
 
 const profileSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -29,7 +30,7 @@ type ProfileFormData = z.infer<typeof profileSchema>
 export function SettingsPage() {
   const { user } = useAppContext()
   const [activeTab, setActiveTab] = useState('editProfile')
-  const [avatar, setAvatar] = useState(user?.avatar || '/avatar.png')
+  const [avatar, setAvatar] = useState(user?.avatar || '/user.png')
 
   const { register, handleSubmit } = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
@@ -47,9 +48,10 @@ export function SettingsPage() {
     },
   })
 
-  const onSubmit = (data: ProfileFormData) => {
-    console.log(data)
-  }
+  const onSubmit = async () => {
+    toast.success("Form saved");
+  };
+
 
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -119,14 +121,14 @@ export function SettingsPage() {
                   <label className="block text-sm text-gray-600 mb-2">Your Name</label>
                   <Input
                     {...register('name')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">User Name</label>
                   <Input
                     {...register('username')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
@@ -134,7 +136,7 @@ export function SettingsPage() {
                   <Input
                     {...register('email')}
                     type="email"
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
@@ -142,13 +144,13 @@ export function SettingsPage() {
                   <Input
                     {...register('password')}
                     type="password"
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">Date of Birth</label>
                   <Select defaultValue="25 January 1990">
-                    <SelectTrigger className="bg-white">
+                    <SelectTrigger className="bg-white text-zinc-500">
                       <SelectValue placeholder="Select date" />
                     </SelectTrigger>
                     <SelectContent>
@@ -161,35 +163,35 @@ export function SettingsPage() {
                   <label className="block text-sm text-gray-600 mb-2">Present Address</label>
                   <Input
                     {...register('presentAddress')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">Permanent Address</label>
                   <Input
                     {...register('permanentAddress')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">City</label>
                   <Input
                     {...register('city')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">Postal Code</label>
                   <Input
                     {...register('postalCode')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">Country</label>
                   <Input
                     {...register('country')}
-                    className="bg-white"
+                    className="bg-white text-zinc-500"
                   />
                 </div>
               </div>

@@ -4,6 +4,7 @@ import "./globals.css"
 import { AppProvider } from '@/context/AppContext'
 import { Navigation } from "./components/navigation"
 import Header from "./components/Header"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -33,6 +34,7 @@ export default function RootLayout({
               </main>
             </div>
           </div>
+          <Toaster richColors />
         </AppProvider>
       </body>
     </html>
