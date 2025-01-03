@@ -1,5 +1,5 @@
 "use client"
-import { BellIcon, MenuIcon, SearchIcon, Settings2Icon, SettingsIcon } from 'lucide-react'
+import { BellIcon, MenuIcon, SearchIcon, SettingsIcon } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"

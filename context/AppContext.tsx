@@ -1,10 +1,8 @@
 'use client'
 
-import { Skeleton } from '@/components/ui/skeleton'
 import { Card } from '@/types/card'
 import { Transaction } from '@/types/transaction'
 import { User } from '@/types/user'
-import { Loader, Loader2 } from 'lucide-react'
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 interface AppContextType {

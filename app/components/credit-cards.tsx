@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import Image from "next/image"
 
 export function CreditCards() {
   return (
