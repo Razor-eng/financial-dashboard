@@ -29,6 +29,7 @@ type ProfileFormData = z.infer<typeof profileSchema>
 export function SettingsPage() {
   const { user } = useAppContext()
   const [activeTab, setActiveTab] = useState('editProfile')
+  const [avatar, setAvatar] = useState(user?.avatar || '/avatar.png')
 
   const { register, handleSubmit } = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
@@ -48,6 +49,17 @@ export function SettingsPage() {
 
   const onSubmit = (data: ProfileFormData) => {
     console.log(data)
+  }
+
+  const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        setAvatar(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+    }
   }
 
   return (
@@ -82,12 +94,22 @@ export function SettingsPage() {
             <div className="flex justify-center lg:justify-start items-center gap-6 mb-8">
               <div className="relative">
                 <Avatar className="h-24 w-24">
-                  <AvatarImage src={user?.avatar} alt="Profile picture" />
+                  <AvatarImage src={avatar} alt="Profile picture" />
                   <AvatarFallback>{user?.name}</AvatarFallback>
                 </Avatar>
-                <button className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-md">
+                <label
+                  htmlFor="avatar-upload"
+                  className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-md cursor-pointer"
+                >
                   <PenSquare className="w-4 h-4 text-gray-600" />
-                </button>
+                  <input
+                    id="avatar-upload"
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleAvatarChange}
+                  />
+                </label>
               </div>
             </div>
 
