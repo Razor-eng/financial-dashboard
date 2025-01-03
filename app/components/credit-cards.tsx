@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import Image from "next/image"
 
 export function CreditCards() {
   return (
@@ -11,8 +12,8 @@ export function CreditCards() {
               <div className="text-xs opacity-80 mb-1 text-zinc-400">Balance</div>
               <div className="text-xl font-semibold">$5,756</div>
             </div>
-            <div className="flex items-center gap-2">
-              <img src="/chip.png" alt="chip-1" />
+            <div className="flex items-center gap-2 w-9">
+              <Image src="/chip.png" alt="chip-1" priority height={500} width={500} />
             </div>
           </div>
           <div className="mb-4 px-6">
@@ -43,8 +44,8 @@ export function CreditCards() {
               <div className="text-xs opacity-70 mb-1 text-zinc-500">Balance</div>
               <div className="text-xl font-semibold">$5,756</div>
             </div>
-            <div className="flex items-center gap-2">
-              <img src="chip1.png" alt="chip-2" />
+            <div className="flex items-center gap-2 w-9">
+              <Image src="/chip1.png" alt="chip-2" priority height={500} width={500} />
             </div>
           </div>
           <div className="mb-4 px-6">
